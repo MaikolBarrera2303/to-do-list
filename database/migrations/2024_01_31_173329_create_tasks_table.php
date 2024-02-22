@@ -16,9 +16,9 @@ return new class extends Migration
             $table->id();
             $table->string("title",100);
             $table->longText("description");
-            $table->boolean("state");
+            $table->boolean("state")->default(false);
             $table->foreignId("user_id");
-            $table->foreign("user_id")->references("id")->on("users");
+            $table->foreign("user_id")->references("id")->on("users")->cascadeOnUpdate()->cascadeOnDelete();
             $table->softDeletes();
             $table->timestamps();
         });

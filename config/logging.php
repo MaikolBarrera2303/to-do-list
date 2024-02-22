@@ -52,6 +52,11 @@ return [
     */
 
     'channels' => [
+        'error_system' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/error_system.log'),
+            'level' => 'debug',
+        ],
         'stack' => [
             'driver' => 'stack',
             'channels' => ['single'],

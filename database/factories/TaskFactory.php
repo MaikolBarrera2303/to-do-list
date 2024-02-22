@@ -2,15 +2,13 @@
 
 namespace Database\Factories;
 
-use App\Models\User;
+use App\Models\Task;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
 
 /**
- * @extends Factory<User>
+ * @extends Factory<Task>
  */
-class UserFactory extends Factory
+class TaskFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -20,10 +18,10 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),
-            'password' => Hash::make(1234),
+            "title" => fake()->jobTitle(),
+            "description" => fake()->realText(500),
+            "state" => fake()->boolean,
+            "user_id" => rand(1,22)
         ];
     }
-
 }

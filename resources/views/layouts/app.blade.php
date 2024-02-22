@@ -10,7 +10,13 @@
 </head>
 <body>
 
+    @if(!request()->routeIs("/") && !request()->routeIs("register"))
+        @include("layouts.navbar")
+    @endif
+
     @yield("content")
+
+<script src="/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
