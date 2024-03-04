@@ -23,8 +23,11 @@ class UserController extends Controller
      * @param User $user
      * @return Application|Factory|View
      */
-    public function show(User $user): View|Factory|Application
+    public function show(User $user)
     {
+        if ($user->id !== Auth::id())
+            return redirect(route("task.index"))->with("error","Accion no valida");
+
         return view("user.show",[
             "user" => $user
         ]);
